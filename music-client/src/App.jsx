@@ -43,7 +43,20 @@ function App() {
   return (
     <div className="min-h-screen bg-gray-900 text-white p-8 font-sans pb-32">
       {/* --- ЗОНА ДЛЯ ПЕРЕТЯГУВАННЯ ВІКНА --- */}
-      <div className="fixed top-0 left-0 w-full h-8 drag-area z-50"></div>
+      <div className="fixed top-0 left-0 w-full h-8 drag-area z-50">
+        <button 
+          onClick={() => window.electronAPI?.closeWindow()}
+          className="w-3.5 h-3.5 rounded-full bg-[#ff5f56] hover:bg-red-600 transition-colors shadow-sm"
+          style={{ WebkitAppRegion: 'no-drag' }} // Це ВАЖЛИВО, щоб кнопку можна було натиснути
+          title="Закрити"
+        ></button>
+        <button
+          onClick={() => window.electronAPI?.minimizeWindow()}
+          className="w-3.5 h-3.5 rounded-full bg-[#ffbd2e] hover:bg-yellow-500 transition-colors shadow-sm"
+          style={{ WebkitAppRegion: 'no-drag'}}
+          title='Згорнути'
+        ></button>
+      </div>
       <div className="max-w-2xl mx-auto">
         <h1 className="text-4xl font-bold mb-8 text-green-400 tracking-tight">Мій Музичний Плеєр</h1>
         
